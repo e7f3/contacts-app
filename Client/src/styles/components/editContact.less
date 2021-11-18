@@ -1,0 +1,17 @@
+// Edit contact
+
+.edit-contact__extra-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 30px;
+}
+.edit-contact__delete-button {
+  background-color: transparent;
+  color: @warning-color;
+  border: 1px solid @warning-color;
+  &:hover {
+    color: @text-color--light;
+    background-color: @warning-color;
+    box-shadow: @warning-color 0px 0px 15px;
+  }
+}

@@ -1,0 +1,54 @@
+// Contact Card
+
+.card {
+  display: grid;
+  grid-auto-flow: row;
+  row-gap: 10px;
+  padding: 30px;
+  border-radius: 10px;
+  background-color: @background-color--field-alpha;
+  &--contact {
+    position: relative;
+  }
+
+  @media @tablet-breakpoint {
+    grid-auto-flow: column;
+    grid-template-columns: 2fr 3fr;
+    gap: 30px;
+    padding: 10px;
+  }
+  @media @phone-breakpoint {
+    grid-template-columns: 1fr;
+  }
+}
+.card__field {
+  @media @tablet-breakpoint {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  @media @phone-breakpoint {
+    &:last-of-type {
+      display: none;
+    }
+  }
+}
+.card__title {
+  color: @primary-color;
+  @media @phone-breakpoint {
+    display: none;
+  }
+}
+.card__options {
+  position: absolute;
+  right: 30px;
+  top: 20px;
+  @media @tablet-breakpoint {
+    top: 0;
+    bottom: 0;
+    right: 10px;
+  }
+}
+.card__options-icon {
+  width: 30px;
+}

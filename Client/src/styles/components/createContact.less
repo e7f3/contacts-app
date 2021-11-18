@@ -1,0 +1,41 @@
+// Create contact
+
+.create-contact {
+  padding: 0;
+  position: inherit;
+}
+
+.create-contact__button {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  row-gap: 10px;
+  padding: 30px;
+  &:hover {
+    color: @primary-color;
+  }
+
+  @media @tablet-breakpoint {
+    flex-direction: row;
+    justify-content: center;
+    gap: 30px;
+    grid-column: 1 / -1;
+    padding: 10px;
+  }
+  .title {
+    @media @tablet-breakpoint {
+      display: none;
+    }
+  }
+}
+
+.create-contact__icon {
+  width: 75px;
+  height: 75px;
+
+  @media @tablet-breakpoint {
+    width: 50px;
+    height: 50px;
+  }
+}

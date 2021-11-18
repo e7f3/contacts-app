@@ -1,0 +1,130 @@
+// Header
+
+.header {
+  width: 100%;
+  position: sticky;
+  padding: 40px 0 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 2;
+}
+.header__logo {
+  position: relative;
+}
+.header__logo-link {
+  font: inherit;
+  letter-spacing: inherit;
+}
+
+.header__buttons-wrapper {
+  @media @phone-breakpoint {
+    visibility: hidden;
+    opacity: 0;
+    display: flex;
+    justify-content: end;
+    position: absolute;
+    top: 0;
+    left: -10px;
+    right: -10px;
+    &.show {
+      visibility: visible;
+      opacity: 1;
+      .header__buttons {
+        transform: translateX(0);
+      }
+    }
+  }
+}
+
+.header__buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 10px;
+  .button:last-child {
+    grid-column: -2 / -1;
+  }
+  @media @phone-breakpoint {
+    height: 100vh;
+    width: 50%;
+    min-width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    padding: 98px 10px;
+    gap: 10px;
+    background-color: @background-color--light;
+    box-shadow: @popup-shadow;
+    transform: translateX(100%);
+    transition-delay: 1s;
+    transition: transform 0.2s ease-in-out;
+    .button {
+      color: @primary-color--dark;
+      font-weight: 700;
+      &:hover {
+        box-shadow: none;
+        color: @primary-color;
+      }
+    }
+  }
+}
+.header__menu-button {
+  position: absolute;
+  right: 0px;
+  top: 30px;
+  display: none;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  z-index: 3;
+  &.active {
+    div {
+      background-color: @primary-color--dark;
+      transform: rotate(135deg);
+      &::before {
+        background-color: @primary-color--dark;
+        transform: translateY(10px) rotate(90deg);
+      }
+      &::after {
+        background-color: @primary-color--dark;
+        transform: translateY(-10px) rotate(-90deg);
+      }
+    }
+  }
+
+  div {
+    display: block;
+    height: 4px;
+    width: 30px;
+    background-color: @background-color--light;
+    border-radius: 10px;
+    position: relative;
+    transition: transform 0.2s ease-in-out;
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0px;
+      right: 0px;
+      height: 4px;
+      background-color: @background-color--light;
+      border-radius: 10px;
+      transition: transform 0.2s ease-in-out;
+    }
+    &::before {
+      top: -10px;
+    }
+    &::after {
+      bottom: -10px;
+    }
+  }
+
+  &:hover {
+    box-shadow: none;
+  }
+  @media @phone-breakpoint {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
