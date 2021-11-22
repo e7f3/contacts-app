@@ -3,9 +3,13 @@ import Button from "./UI/Button.jsx";
 import { Link, useNavigate } from "react-router-dom";
 import { useStore } from "../hooks/useStore";
 
+/*  Компонент Header */
 function Header() {
+
+  //  Получение из контекста глобального состояния пользователя
   const { userStore } = useStore();
   const navigate = useNavigate();
+
   const handleClick = () => {
     userStore.signOut();
     localStorage.removeItem("token");
@@ -30,6 +34,7 @@ function HeaderLogo() {
     </div>
   );
 }
+
 function HeaderButtons({ isAuth, onClick }) {
   const buttonRef = useRef();
   const popupRef = useRef();
@@ -52,6 +57,9 @@ function HeaderButtons({ isAuth, onClick }) {
         ref={popupRef}
       >
         <div className="header__buttons">
+          {
+            /*  Отрисовка кнопок в зависимости от аутентификации пользователя */
+          }
           {isAuth ? (
             <>
               <Link className="link button button--transparent" to="/contacts">

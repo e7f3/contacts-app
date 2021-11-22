@@ -1,6 +1,8 @@
 import jwtDecode from "jwt-decode";
 import { $host, $authHost } from "./index";
 
+/*  API для запросов, касающихся списка контактов пользователя */
+
 export const getAllContacts = async () => {
   const token = localStorage.getItem("token");
   const user = jwtDecode(token);

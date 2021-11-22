@@ -3,6 +3,8 @@ import CardIcon from "../images/contact_icon.svg";
 import { Link } from "react-router-dom";
 import ArrowIcon from "../images/arrow_icon.svg";
 
+/*  Приветственная страница */
+
 function Main() {
   return (
     <div className="main">

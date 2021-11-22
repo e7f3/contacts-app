@@ -9,11 +9,18 @@ import { useAsync } from "../hooks/useAsync";
 import Search from "../components/Search.jsx";
 import Spinner from "../components/Spinner.jsx";
 
+/*  Страница контактов пользователя */
+
 const UserContacts = observer(() => {
   const navigate = useNavigate();
+
+  // Получение из контекста глобального состояния списка контактов
   const { contactStore } = useStore();
+
+  // Организация запроса на получение списка контактов пользователя
   const { status, value, error } = useAsync(getAllContacts);
 
+  //  В случае ошибки в результате запроса
   useEffect(() => {
     if (error) {
       if (error.response) alert(error.response.data.message);
@@ -21,6 +28,8 @@ const UserContacts = observer(() => {
       navigate("/");
     }
   }, [error]);
+
+  //  В случае успешного запроса
   useEffect(() => {
     if (value) contactStore.contacts = value.sort((a, b) => a.name.localeCompare(b.name));
   }, [value]);

@@ -1,3 +1,5 @@
+//  Тестовый сервер для работы с клиентом
+
 require("dotenv").config();
 const jsonServer = require("json-server");
 const ContactsController = require("./Controller/ContactsController");

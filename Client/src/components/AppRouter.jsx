@@ -4,7 +4,11 @@ import { privateRoutes, publicRoutes } from "../routes/routes";
 import { useStore } from "../hooks/useStore";
 import { observer } from "mobx-react-lite";
 
+/*  Компонент для работы с routes.
+    Отрисовка путей в зависимости от данных об аутентификации пользователя  */
 const AppRouter = observer(() => {
+  
+  // Получение из контекста глобального состояния пользователя
   const { userStore } = useStore();
   return (
     <Routes>

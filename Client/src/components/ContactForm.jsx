@@ -3,14 +3,18 @@ import * as yup from "yup";
 import Form from "./UI/Form.jsx";
 import Input from "./UI/Input.jsx";
 
+// Валидация полей формы при помощи yup
 const schema = yup.object().shape({
   name: yup.string().max(40),
   phone: yup.string().required(),
   email: yup.string().email(),
 });
 
+/*  Компонент формы контакта пользователя */
 const ContactForm = React.forwardRef(
   ({ onSubmit, formTitle, buttonText, children, ...props }, ref) => {
+
+    //  Обработка открытия / закрытия формы
     const handleClick = (event) => {
       event.stopPropagation();
       if (event.target === ref.current) {

@@ -1,5 +1,7 @@
 import { makeAutoObservable } from "mobx";
 
+//  Глобальное состояние пользователя
+
 export default class UserStore {
   _isAuth = false;
   _user = {};

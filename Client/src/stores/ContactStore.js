@@ -1,5 +1,7 @@
 import { makeAutoObservable } from "mobx";
 
+//  Глобальное состояние списка контактов пользователя
+
 export default class ContactStore {
   searchQuery = "";
   constructor() {

@@ -1,14 +1,13 @@
 import { useState, useEffect, useCallback } from "react";
 
+/*  Хук для организации работы с асинхронными функциями (запросами) */
 export const useAsync = (asyncFunction, immediate = true) => {
   const [status, setStatus] = useState("idle");
   const [value, setValue] = useState(null);
   const [error, setError] = useState(null);
 
-  // The execute function wraps asyncFunction and
-  // handles setting state for pending, value, and error.
-  // useCallback ensures the below useEffect is not called
-  // on every render, but only if asyncFunction changes.
+  /*  Функция - обёртка для асинхронной функции.
+      Устанавливает состояния статуса запроса, его результата и ошибки  */
   const execute = useCallback((...args) => {
     setStatus("pending");
     setValue(null);
@@ -25,9 +24,7 @@ export const useAsync = (asyncFunction, immediate = true) => {
       });
   }, [asyncFunction]);
 
-  // Call execute if we want to fire it right away.
-  // Otherwise execute can be called later, such as
-  // in an onClick handler.
+  // Выполнить запрос сразу, если не указано обратное
   useEffect(() => {
     if (immediate) {
       execute();

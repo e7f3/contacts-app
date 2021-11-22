@@ -1,8 +1,9 @@
-import React, { useState, useMemo, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { observer } from "mobx-react-lite";
 import { useStore } from "../hooks/useStore.js";
 import Input from "./UI/Input.jsx";
 
+/*  Компонент поиска по списку контактов  */
 const Search = observer((props) => {
   const [query, setQuery] = useState("");
   const { contactStore } = useStore();

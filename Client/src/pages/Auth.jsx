@@ -2,6 +2,8 @@ import React from "react";
 import AuthForm from "../components/AuthForm.jsx";
 import { useLocation } from "react-router-dom";
 
+/*  Страница авторизации пользователя */
+
 function Auth() {
   const location = useLocation();
   const isLogin = location.pathname === "/login";

@@ -1,6 +1,7 @@
 import React from "react";
 import Loader from "react-loader-spinner";
 
+/*  Компонент колеса загрузки при загрузке страницы */
 function Spinner(props) {
   return (
     <div className="loader">

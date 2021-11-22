@@ -1,5 +1,7 @@
 const jwt = require("jsonwebtoken");
 
+//  Middleware для проверки jwt токена из заголовка запроса на валидность
+
 module.exports = function (req, res, next) {
   if (req.method == "OPTION") {
     next();

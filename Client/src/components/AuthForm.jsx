@@ -8,26 +8,35 @@ import { useNavigate } from "react-router-dom";
 import { observer } from "mobx-react-lite";
 import { useAsync } from "../hooks/useAsync";
 
+// Валидация полей формы при помощи yup
 const schema = yup.object().shape({
   name: yup.string().max(40),
   email: yup.string().email().required(),
   password: yup.string().required(),
 });
 
+/*  Компонент формы Логина или Регистрации */
 const AuthForm = observer(({ isLogin, ...props }) => {
+  // Получение из контекста глобального состояния пользователя
   const { userStore } = useStore();
+
   const navigate = useNavigate();
+
+  //  Организация запроса на логин / регистрацию
   const { execute, status, value, error } = useAsync(
     isLogin ? login : registration,
     false
   );
   
+  //  В случае ошибки в результате запроса
   useEffect(() => {
     if (error) {
       if (error.response) alert(error.response.data.message);
       else console.log(error.message);
     }
   }, [error]);
+
+  //  В случае успешного запроса
   useEffect(() => {
     if (value) {
       userStore.user = value;
