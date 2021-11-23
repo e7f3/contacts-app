@@ -2,8 +2,12 @@
 
 Для запуска приложения:
 - Установить пакеты в директориях Client и Server
-- Запустить сервер (node server.js)
-- Запустить клиент на dev-server (npm run dev)
+- В директории Server
+    - Запустить сервер (node server.js)
+- В директории Client
+    - Собрать production (npm run build)
+    - Запустить (node index.js)
+- Перейти в браузере на адрес http://localhost:9000/
 
 В базе данных сохранён тестовый пользователь.
 Логин : test@test.com
